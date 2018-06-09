@@ -7,7 +7,7 @@ services:
         - '8666:8666'
       environment:
         - STH_HOST=0.0.0.0
-        - DB_URI=mongo_sth:27017
+        - DB_URI=mongo_sth:27018
       networks:
         - fiware_network
       depends_on:
@@ -15,7 +15,7 @@ services:
 
     mongo_sth:
       image: mongo:latest
-      command: --smallfiles
+      command: --port 27018 --smallfiles
       networks:
         - fiware_network
 
