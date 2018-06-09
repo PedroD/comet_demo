@@ -1,0 +1,195 @@
+[
+  {
+    "type": "Stores",
+    "id": "Stores",
+    "list": {
+      "type": "List",
+      "value": [
+        {
+          "id": -1,
+          "gpsPos": "-1234.5 6789.0",
+          "name": "Example 1"
+        },
+        {
+          "id": -2,
+          "gpsPos": "-1234.5 6789.0",
+          "name": "Example 2"
+        }
+      ]
+    }
+  },
+  {
+    "type": "Sectors",
+    "id": "Sectors",
+    "list": {
+      "type": "List",
+      "value": [
+        {
+          "id": -1,
+          "storeId": "-1",
+          "name": "Example 1",
+          "geometry": "321312313213"
+        },
+        {
+          "id": -2,
+          "storeId": "-2",
+          "name": "Example 1",
+          "geometry": "321312313213"
+        }
+      ]
+    }
+  },
+  {
+    "type": "Areas",
+    "id": "Areas",
+    "list": {
+      "type": "List",
+      "value": [
+        {
+          "id": -1,
+          "sectorId": "-1",
+          "name": "Example 1",
+          "geometry": "321312313213",
+          "isStaffArea": true
+        },
+        {
+          "id": -2,
+          "sectorId": "-2",
+          "name": "Example 2",
+          "geometry": "321312313213",
+          "isStaffArea": false
+        }
+      ]
+    }
+  },
+
+  {
+    "type": "PersonDetection",
+    "id": "PersonDetection",
+    "tagId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "sectorId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "positionX": {
+      "type": "Float",
+      "value": -1
+    },
+    "positionY": {
+      "type": "Float",
+      "value": -1
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+  {
+    "type": "PersonCounter",
+    "id": "PersonCounter",
+    "sectorId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "direction": {
+      "type": "Enum",
+      "value": "in"
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+  {
+    "type": "CounterOccupancy",
+    "id": "CounterOccupancy",
+    "sectorId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "count": {
+      "type": "Integer",
+      "value": 0
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+
+  {
+    "type": "CellDetection",
+    "id": "CellDetection",
+    "cellId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "tagId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+  {
+    "type": "AreaVisit",
+    "id": "AreaVisit",
+    "areaId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "tagId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "count": {
+      "type": "Integer",
+      "value": -1
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+  {
+    "type": "StoreVisit",
+    "id": "StoreVisit",
+    "storeId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "tagId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "duration": {
+      "type": "Integer",
+      "value": -1
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  },
+  {
+    "type": "StoreOccupancy",
+    "id": "StoreOccupancy",
+    "storeId": {
+      "type": "Integer",
+      "value": -1
+    },
+    "count": {
+      "type": "Integer",
+      "value": -1
+    },
+    "ts": {
+      "type": "Timestamp",
+      "value": -1
+    }
+  }
+]

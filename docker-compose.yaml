@@ -1,0 +1,45 @@
+version: '2'
+services:
+
+    sth:
+      image: telefonicaiot/fiware-sth-comet:latest
+      ports:
+        - '8666:8666'
+      environment:
+        - STH_HOST=0.0.0.0
+        - DB_URI=mongo_sth:27017
+      networks:
+        - fiware_network
+      depends_on:
+        - mongo_sth
+
+    mongo_sth:
+      image: mongo:latest
+      command: --smallfiles
+      networks:
+        - fiware_network
+
+    orion:
+      image: fiware/orion
+      ports:
+        - '1026:1026'
+      command: -dbhost mongo_orion
+      networks:
+        - fiware_network
+      depends_on:
+        - mongo_orion
+
+    mongo_orion:
+      image: mongo:latest
+      command: --smallfiles
+      networks:
+        - fiware_network
+
+    demo:
+      build: demo_coordinator
+      networks:
+        - fiware_network
+        
+networks:
+  fiware_network:
+    driver: bridge
