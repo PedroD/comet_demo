@@ -86,33 +86,27 @@ fun emitMockPersonDetection() {
 fun subscribeCometToOrionEntities() {
     val sthSubscription =
             """
-    {
-        "description": "STH Comet Subscription",
-        "subject": {
-            "entities": [
-                {
-                    "idPattern": ".*",
-                    "isPattern": true
-                }
-            ]
-        },
-        "notification": {
-            "http": {
-                "url": "http://sth:8666/notify"
-            },
-            "attrsFormat": "legacy"
+    {        
+          "entities": [
+        {
+            "type": "PersonDetection",
+            "isPattern": "false",
+            "id": "PersonDetection"
         }
+      ],
+      "attributes": [ "ts" ],
+      "reference": "http://sth:8666/notify"
     }
 """
 
     val headers = mapOf(Pair("FIWARE-ServicePath", SERVICE_PATH), Pair("FIWARE-Service", SERVICE_NAME))
-    val res = post("http://orion:1026/v2/subscriptions", json = JSONObject(sthSubscription),
+    val res = post("http://orion:1026/v1/subscribeContext", json = JSONObject(sthSubscription),
             headers = headers)
 
-    println("Subscribing STH to Orion entities (http://orion:1026/v2/subscriptions):\n$sthSubscription")
+    println("Subscribing STH to Orion entities (http://orion:1026/v1/subscribeContext):\n$sthSubscription")
     println("With headers:\n${headers.toList().joinToString("\n") { "    " + it.first + ": " + it.second }}")
 
-    if (res.statusCode != 201) throw Exception("Error while subscribing Comet: ${res.statusCode}")
+    if (res.statusCode != 200) throw Exception("Error while subscribing Comet: ${res.statusCode}")
 }
 
 
