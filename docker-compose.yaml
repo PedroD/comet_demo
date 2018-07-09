@@ -8,16 +8,20 @@ services:
       environment:
         - STH_HOST=0.0.0.0
         - DB_URI=mongo_sth:27018
+        - LOGOPS_LEVEL=DEBUG
       networks:
         - fiware_network
       depends_on:
         - mongo_sth
+        
 
     mongo_sth:
       image: mongo:latest
       command: --port 27018 --smallfiles
       networks:
         - fiware_network
+      ports:
+        - 27018:27018
 
     orion:
       image: fiware/orion
